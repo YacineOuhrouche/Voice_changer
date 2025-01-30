@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Real-Time Voice Changer",
+  "description": "Change the pitch and tone of your voice during video meetings.",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "audioCapture"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.zoom.us/*", "https://meet.google.com/*", "https://*.microsoft.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ]
+}
